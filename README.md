@@ -2,11 +2,11 @@
 Prerequisites:
 - kubectl CLI working.
 - Functioning deployed Kubernetes cluster.
-- Dapr & Dapr CLI: ```dapr init -k```
+- Dapr & Dapr CLI: ```wget -q https://raw.githubusercontent.com/dapr/cli/master/install/install.sh -O - | /bin/bash```
 - Install Ingress: ```kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.2.0/deploy/static/provider/cloud/deploy.yaml```
 
 Deploying microservices:
-- Install Dapr components: ```wget -q https://raw.githubusercontent.com/dapr/cli/master/install/install.sh -O - | /bin/bash```
+- Install Dapr components: ```dapr init -k```
 - Create namespace: ```kubectl create namespace node-docker```
 - Select namespace created above: ```kubectl config set-context --current --namespace=node-docker```
 - Clone this repo. Go to the innovation-simulator folder: ```cd ~/innovation-simulator```
