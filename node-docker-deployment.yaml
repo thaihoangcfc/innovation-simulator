@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-docker-api
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: node-docker-api
+  template:
+    metadata:
+      labels:
+        app: node-docker-api
+      annotations:
+        dapr.io/enabled: "true"
+        dapr.io/app-id: "node-docker-api"
+        dapr.io/app-port: "3000"
+    spec:
+      containers:
+      - name: node-docker-api
+        image: thaihoangcfc/node-docker:latest
+        imagePullPolicy: "Always"
+        ports:
+        - containerPort: 3000
