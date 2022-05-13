@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: example-ingress
-  namespace: node-sample
+  namespace: node-docker
   annotations:
     kubernetes.io/ingress.class: nginx
 spec:
@@ -16,4 +16,4 @@ spec:
             service:
               name: node-docker-api
               port:
-                number: 80
+                number: 3000
