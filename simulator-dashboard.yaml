@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simulator-dashboard
+  namespace: node-docker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: simulator-dashboard
+  template:
+    metadata:
+      labels:
+        app: simulator-dashboard
+      annotations:
+        dapr.io/enabled: "true"
+        dapr.io/app-id: "simulator-dashboard"
+        dapr.io/app-port: "3333"
+    spec:
+      serviceAccountName: dashboard-admin
+      containers:
+      - name: simulator-dashboard
+        image: thaihoangcfc/innovation-simulator-dashboard:latest
+        imagePullPolicy: "Always"
+        ports:
+        - containerPort: 3333
