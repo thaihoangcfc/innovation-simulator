@@ -19,6 +19,8 @@ Deploying microservices:
 - Deploy Dashboard: ```kuberctl apply -f simulator-dashboard.yml```
 - Deploy service account: ```kuberctl apply -f simulator-dashboard-svcacc.yml```
 - Port forward traffic from host computer to dashboard: ```kubectl port-forward deployment/simulator-dashboard 3333```
+- Port forward traffic from host computer to dapr dashboard (logging & tracing): ```kubectl port-forward deployment/dapr-dashboard -n dapr-system 3334:8080```
 - Port forward traffic from host computer to Ingress: ```kubectl port-forward --namespace=ingress-nginx service/ingress-nginx-controller 8080:80```
-- Browse localhost:8080 for direct API
+- Browse localhost:8080 for direct API (for any endpoing testing via localhost/Postman)
 - Browse localhost:3333 for dashboard
+- Browse localhost:3334 for Dapr dashboard
