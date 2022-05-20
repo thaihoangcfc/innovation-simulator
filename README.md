@@ -24,3 +24,4 @@ Deploying microservices:
 - Browse localhost:8080 for direct API (for any endpoing testing via localhost/Postman)
 - Browse localhost:3333 for dashboard
 - Browse localhost:3334 for Dapr dashboard
+- IMPORTANT: Currently, deployment yaml files for microservices and simulator dashboard are pointing to a remote public docker registry to pull the image. This solution will run as what the images pulled from the Docker registry contains. Feel free to build your own images and make changes to the images path under container specs so the deployment uses your images. More info: https://docs.docker.com/language/nodejs/build-images/
