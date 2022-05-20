@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head'); %>
+</head>
+<body class="container">
+
+<header>
+  <%- include('../partials/header'); %>
+</header>
+
+<main>
+  <div class="jumbotron">
+    <h1>Generate microservice workload</h1>
+    <br>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <div class="<%= statusClass %>" role="alert">
+              <%= status %>
+            </div>
+            <h5 class="card-title">Start querying API server</h5>
+            <form action="/apiload" method="POST">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="workloadType" value="fixed" checked>
+                <label class="form-check-label" for="workloadType">
+                  Fixed QoS
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="workloadType" value="random">
+                <label class="form-check-label" for="workloadType">
+                  Random QoS
+                </label>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" name="interval" id="interval" placeholder="Set interval between API calls, in ms." required>
+              </div>
+              <br>
+              <input type="submit" value="Initiate workload" class="btn btn-primary mb-2">
+            </form>
+            <br>
+            <form action="/stopapiload" method="POST">
+              <input type="submit" value="Stop workload" class="btn btn-danger mb-2">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <%- include('../partials/footer'); %>
+</footer>
+</body>
+</html>

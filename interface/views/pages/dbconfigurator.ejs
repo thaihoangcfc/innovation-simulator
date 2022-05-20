@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head'); %>
+</head>
+<body class="container">
+
+<header>
+  <%- include('../partials/header'); %>
+</header>
+
+<main>
+  <div class="jumbotron">
+    <h1>Set microservice QoS</h1>
+    <br>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Set HTTP response delay</h5>
+            <form action="/dbconfigurator" method="POST">
+              <div class="form-group">
+                <input type="text" class="form-control" name="time" id="time" placeholder="ms">
+              </div>
+              <input type="submit" value="Submit" class="btn btn-primary mb-2">
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Set request timeout</h5>
+            <form action="/setreqtimeout" method="POST">
+              <div class="form-group">
+                <input type="text" class="form-control" name="timeout" id="timeout" placeholder="ms">
+              </div>
+              <input type="submit" value="Submit" class="btn btn-primary mb-2">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <%- include('../partials/footer'); %>
+</footer>
+
+</body>
+</html>
